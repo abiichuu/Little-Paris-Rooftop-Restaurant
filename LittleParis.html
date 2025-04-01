@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Paris Restaurant</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Layout */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #05c76d;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #222;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+            font-size: 25px;
+        }
+
+        nav ul li a:hover {
+            color: #05c76d;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-text {
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .cta-button {
+            background-color: #ff6347;
+            padding: 15px 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e5533c;
+            transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition-duration: 0.4s;
+        }
+        .cta-button:active{
+            transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition-duration: 0.4s;
+        background-color: #05c76d;
+        }
+        /* Featured Dishes Section */
+        .featured-dishes {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .featured-dishes h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            color: #333;
+        }
+  /* Footer Section */
+  .footer-item{
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 30px 15px;
+        }
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .dish-item1 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .dish-item1:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dish-item1 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 250px;
+
+        }
+
+
+        .dish-item2 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .dish-item2:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dish-item2 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 250px;
+
+        }
+
+
+        .dish-item3 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .dish-item3:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dish-item3 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 250px;
+        }
+
+        .view-more {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #ff6347;
+            font-weight: bold;
+        }
+
+
+
+
+
+
+        .pic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            background-color: #f9f9f9;
+        }
+
+        .pic-item1 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .pic-item1:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pic-item1 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 350px;
+
+        }
+
+
+        .pic-item2 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .pic-item2:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pic-item2 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 350px;
+
+        }
+
+
+        .pic-item3 {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .pic-item3:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pic-item3 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 350px;
+        }
+
+        .pic-more {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #ff6347;
+            font-weight: bold;
+        }
+
+
+        .pic-dishes {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .pic-dishes h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            color: #333;
+        }
+
+
+
+
+
+
+
+
+        /* Menu Section */
+        .our-menu {
+            font-size: 60px;
+          font-family: Georgia, 'Times New Roman', Times, serif;
+           background-color: #043d17;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+            border-color: #222;
+            font-style: italic;
+        }
+
+        .menu-category {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 50px 20px;
+        }
+
+        .menu-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .menu-item h4 {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cartr1 {
+            background-color: #ff6347;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-bottom: -20px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .add-to-cartr1:hover {
+            transform: translateY(-2px);
+            background-color: #e5533c;
+        }
+
+
+        .add-to-cartr2 {
+            background-color: #ff6347;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .add-to-cartr2:hover {
+            transform: translateY(-2px);
+            background-color: #e5533c;
+            
+        }
+
+        .add-to-cart {
+            background-color: #ff6347;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            background-color: #e5533c;
+            
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .menu-item {
+                text-align: left;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .logo{
+            border-radius: ;
+            height: 150px;
+           
+        }
+        .logoimg{
+            height: 150px;
+            width: 150px;
+            border-radius: 75px;
+        }
+        .search{
+            height: 50px;
+            width: 450px;
+            border-radius: 25px;
+            font-size: 20px;
+            padding-left: 10px;
+            border-style: solid;
+            color: #065731;
+            border-color: #087e47;
+
+        }
+      
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img  class="logoimg" src="Screenshot_26-11-2024_213755_www.instagram.com.jpeg" alt="Little Paris Restaurant">
+        </div>
+   
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#our-menu">Menu Sample</a></li>
+                <li><a href="https://www.instagram.com/little.paris1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Message</a></li>
+                <li><a href="tel:+251915571665">Contact</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Little Paris Restaurant</h1>
+            <p>Bringing the best of French cuisine to your doorstep.</p>
+            <a href="knowmore.html" class="cta-button">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Dishes Section -->
+    <section class="featured-dishes">
+        <h2>Featured Dishes</h2>
+        <div class="dish-grid">
+            <div class="dish-item1">
+                <img src="soup.jpg" alt="Dish 1">
+                <h3>Soups</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item2">
+                <img src="grilled dishes.jpg" alt="Dish 2">
+                <h3>Grilled Dishes</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item3">
+                <img src="appitizers.jpg" alt="Dish 3">
+                <h3> Appeitizers </h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+        </div>
+
+        <div class="dish-grid">
+            <div class="dish-item1">
+                <img src="starter2.jpg" alt="Dish 1">
+                <h3>Starter</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item2">
+                <img src="spaghetti.jpg" alt="Dish 2">
+                <h3>Spaghetti</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item3">
+                <img src="sandwitches.jpg" alt="Dish 3">
+                <h3>Sandwitches & Burgers</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+        </div>
+
+        <div class="dish-grid">
+            <div class="dish-item1">
+                <img src="firfir2.jpg" alt="Dish 1">
+                <h3>Traditional Dishes</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item2">
+                <img src="pizza.jpg" alt="Dish 2">
+                <h3>Pizza</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+            <div class="dish-item3">
+                <img src="lasagna.jpg" alt="Dish 3">
+                <h3>Lasagna</h3>
+                <a href="Positivity.html" class="view-more">View More</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="pic-dishes">
+        <h2>What We Offer</h2>
+        <div class="pic-grid">
+            <div class="pic-item1">
+                <img src="view.jpg" alt="Dish 1">
+                <h3>Rooftop Dinner</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item2">
+                <img src="event.jpg" alt="Dish 2">
+                <h3> Event Packages</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item3">
+                <img src="proposal.jpg" alt="Dish 3">
+                <h3>Engagment Ceremonies</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pic-dishes">
+        <div class="pic-grid">
+            <div class="pic-item1">
+                <img src="largedinner.jpg" alt="Dish 1">
+                <h3>Family Tables</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item2">
+                <img src="indoorevent.jpg" alt="Dish 2">
+                <h3>Indoor Events</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item3">
+                <img src="maindishes.webp" alt="Dish 3">
+                <h3>Main Dishes</h3>
+                <a href="aboutus.html" class="pic-more">Know More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pic-dishes">
+        <div class="pic-grid">
+            <div class="pic-item1">
+                <img src="rooftopevents.webp" alt="Dish 1">
+                <h3>Rooftop Parties</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item2">
+                <img src="sunset.webp" alt="Dish 2">
+                <h3>Sunset View</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+            <div class="pic-item3">
+                <img src="cocktails.jpg" alt="Dish 3">
+                <h3>Cocktals</h3>
+                <a href="Positivity.html" class="pic-more">Know More</a>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <!-- Menu Page -->
+    <section id="our-menu">
+    <h2 class="our-menu">Sample of our Menu</h2>
+    </section>
+    <section class="menu-category">
+        <div class="menu-item">
+            <img src="pizza.jpg" alt="Menu Item 1">
+            <h4 style="margin-bottom: 20px;">Little Paris Pizza</h4>
+            <a href="Positivity.html" class="add-to-cartr1">Order now </a>
+        </div>
+        <div class="menu-item">
+            <img src="firfir2.jpg" alt="Menu Item 2">
+            <h4 style="margin-bottom: 20px;">Fasting firifir  </h4>
+            
+            <a href="Positivity.html" class="add-to-cartr1">Order now </a>
+        </div>
+        <div class="menu-item">
+            <img src="frenchtoast2.jpg" alt="Menu Item 3">
+            <h4 style="margin-bottom: 20px;"> French toast</h4>
+          <a href="Positivity.html" class="add-to-cartr1">Order now </a>
+        </div>
+        <div class="menu-item">
+            <img src="lasagna.jpg" alt="Menu Item 3">
+            <h4 style="margin-bottom: 20px;"> Lasagna</h4>
+          <a href="Positivity.html" class="add-to-cartr1">Order now </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-item">
+        <p>&copy; 2024 Little Paris Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
